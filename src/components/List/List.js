@@ -2,11 +2,11 @@ import React from "react";
 import NewTask from "./NewTask/NewTask";
 import TaskList from "./TaskList/TaskList";
 
-const List = () => {
+const List = (props) => {
   return (
     <div>
       <NewTask />
-      <TaskList />
+      <TaskList onOpen={props.onOpen} />
     </div>
   );
 };

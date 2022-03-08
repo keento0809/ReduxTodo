@@ -17,8 +17,9 @@ const listSlice = createSlice({
       };
       state.tasks.push(newTask);
     },
-    // updateTask(state,action) {
-    //
+    // editTask(state, action) {
+    //   const editedTaskId = action.payload;
+    //   const editedTask =
     // },
     removeTaskFromList(state, action) {
       state.totalQuantity--;
