@@ -1,1 +1,1 @@
-# This is a todo-list to practice using redux.
+This is a todo-list to practice using redux.
