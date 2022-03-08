@@ -1,9 +1,12 @@
 import React from "react";
+import NewTask from "./NewTask/NewTask";
+import TaskList from "./TaskList/TaskList";
 
 const List = () => {
   return (
     <div>
-      <p>I'm gonna return a taskList.</p>
+      <NewTask />
+      <TaskList />
     </div>
   );
 };
