@@ -22,6 +22,8 @@ const listSlice = createSlice({
     // },
     removeTaskFromList(state, action) {
       state.totalQuantity--;
+      const removeTaskId = action.payload;
+      state.tasks = state.tasks.filter((task) => task.id !== removeTaskId);
     },
   },
 });
