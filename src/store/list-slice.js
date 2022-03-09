@@ -5,7 +5,7 @@ const listSlice = createSlice({
   initialState: {
     tasks: [],
     totalQuantity: 0,
-    selectedTask: null,
+    // selectedTask: null,
   },
   reducers: {
     addTaskToList(state, action) {
@@ -21,27 +21,34 @@ const listSlice = createSlice({
       state.tasks.push(newTask);
     },
     editSelectedTask(state, action) {
-      state.selectedTask = null;
-      console.log(state.selectedTask);
-      const chosenTask = state.tasks.filter(
-        (task) => task.id === action.payload
-      );
-      console.log(chosenTask);
-      state.selectedTask = chosenTask;
-      console.log(state.selectedTask[0].taskText);
+      console.log("Fixing!!");
+      // state.selectedTask = null;
+      // console.log(state.selectedTask);
+      // const chosenTask = state.tasks.filter(
+      //   (task) => task.id === action.payload
+      // );
+      // console.log(chosenTask);
+      // state.selectedTask = chosenTask;
+      // console.log(state.selectedTask[0].taskText);
     },
     updateSelectedTask(state, action) {
-      const updatedTaskId = action.payload.id;
-      console.log(action.payload);
-      let updatingTask = state.tasks.filter(
-        (task) => task.id === updatedTaskId
-      );
-      const remainingTask = state.tasks.filter(
-        (task) => task.id !== updatedTaskId
-      );
-      state.tasks = remainingTask;
-      updatingTask = action.payload;
-      state.tasks.push(updatingTask);
+      console.log(state.tasks);
+      console.log(state.tasks[action.payload.index]);
+      // state.tasks[action.payload.id].taskText = action.payload.taskText;
+      // state.tasks[action.payload.id].importance = action.payload.importance;
+      // const updatingTask = state.tasks.filter((task) => task.id )
+      // state.tasks[action.payload.id] =
+      // const updatedTaskId = action.payload.id;
+      // console.log(action.payload);
+      // let updatingTask = state.tasks.filter(
+      //   (task) => task.id === updatedTaskId
+      // );
+      // const remainingTask = state.tasks.filter(
+      //   (task) => task.id !== updatedTaskId
+      // );
+      // state.tasks = remainingTask;
+      // updatingTask = action.payload;
+      // state.tasks.push(updatingTask);
       // test
       // state.selectedTask = null;
       // console.log(state.selectedTask);
