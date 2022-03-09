@@ -29,7 +29,7 @@ const Modal = (props) => {
 
   const ModalOverlay = (props) => {
     return (
-      <ModalOverlayStyle onClick={props.onClose}>
+      <ModalOverlayStyle onClose={props.onClose}>
         {props.children}
       </ModalOverlayStyle>
     );

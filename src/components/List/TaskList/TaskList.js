@@ -7,12 +7,14 @@ const TaskList = (props) => {
   const tasks = useSelector((state) => state.list.tasks);
   const totalQuantityOfTasks = useSelector((state) => state.list.totalQuantity);
 
-  const openModalHandler = () => {
+  const startEditingHandler = (task) => {
     console.log("Modal is opening...!");
+    // dispatch(selectedTaskActions.putSelectedTask(task));
+    console.log(task);
+    dispatch(listActions.editSelectedTask(task));
+    props.onOpen();
   };
-  // const editTaskHandler = (id) => {
-  //   dispatch(listActions.editTask(id));
-  // };
+
   const removeItemHandler = (id) => {
     dispatch(listActions.removeTaskFromList(id));
   };
@@ -23,7 +25,16 @@ const TaskList = (props) => {
         <p>{task.taskText}</p>
         <p>{task.dueDate}</p>
         <p>{task.importance}</p>
-        <button onClick={props.onOpen}>Edit</button>
+        <button
+          onClick={startEditingHandler.bind(null, {
+            id: task.id,
+            taskText: task.taskText,
+            dueDate: task.dueDate,
+            importance: task.importance,
+          })}
+        >
+          Edit
+        </button>
         <button onClick={removeItemHandler.bind(null, task.id)}>Remove</button>
       </li>
     );
