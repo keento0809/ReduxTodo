@@ -9,7 +9,6 @@ const listSlice = createSlice({
   },
   reducers: {
     addTaskToList(state, action) {
-      console.log(state.tasks);
       state.totalQuantity++;
       const newTask = {
         id: action.payload.id,
@@ -22,24 +21,31 @@ const listSlice = createSlice({
       state.tasks.push(newTask);
     },
     editSelectedTask(state, action) {
-      // I need a task as argument (action.payload).
-      console.log(state.tasks);
-      const chosenTask = state.tasks.filter(
-        (task) => task.id === action.payload.id
-      );
-      state.selectedTask = chosenTask;
+      state.selectedTask = null;
       console.log(state.selectedTask);
-    },
-    changeTaskText(state, action) {
-      state.selectedTask = action.payload;
+      const chosenTask = state.tasks.filter(
+        (task) => task.id === action.payload
+      );
+      console.log(chosenTask);
+      state.selectedTask = chosenTask;
+      console.log(state.selectedTask[0].taskText);
     },
     updateSelectedTask(state, action) {
-      // I need a task as argument (action.payload).
-      // const editingTaskId = action.payload.id;
-      // const editingTask = state.tasks.filter(
-      //   (task) => task.id === editingTaskId
-      // );
-      // editingTask.taskText = action.payload;
+      const updatedTaskId = action.payload.id;
+      console.log(action.payload);
+      let updatingTask = state.tasks.filter(
+        (task) => task.id === updatedTaskId
+      );
+      const remainingTask = state.tasks.filter(
+        (task) => task.id !== updatedTaskId
+      );
+      state.tasks = remainingTask;
+      updatingTask = action.payload;
+      state.tasks.push(updatingTask);
+      // test
+      // state.selectedTask = null;
+      // console.log(state.selectedTask);
+      // state.tasks.replace(originalUpdatingTask, updatingTask);
     },
     removeTaskFromList(state, action) {
       state.totalQuantity--;

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 
@@ -28,21 +28,20 @@ const Modal = (props) => {
   };
 
   const ModalOverlay = (props) => {
-    return (
-      <ModalOverlayStyle onClose={props.onClose}>
-        {props.children}
-      </ModalOverlayStyle>
-    );
+    useEffect(() => {
+      console.log("re-rendered");
+    }, [props]);
+
+    return <div onClose={props.onClose}>{props.children}</div>;
   };
 
   const portalElement = document.getElementById("modal");
 
   return (
     <Fragment>
-      {ReactDOM.createPortal(<BackDrop onClose={props.close} />, portalElement)}
-      ;
+      {ReactDOM.createPortal(<div></div>, portalElement)};
       {ReactDOM.createPortal(
-        <ModalOverlay onClose={props.onClose}>{props.children}</ModalOverlay>,
+        <ModalOverlay>{props.children}</ModalOverlay>,
         portalElement
       )}
       ;

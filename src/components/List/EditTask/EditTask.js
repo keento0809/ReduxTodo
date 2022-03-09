@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { listActions } from "../../../store/list-slice";
 
@@ -7,38 +7,81 @@ import Modal from "../../Modal/Modal";
 const EditTask = (props) => {
   const dispatch = useDispatch();
   const chosenTask = useSelector((state) => state.list.selectedTask);
-  console.log(chosenTask);
-  // let chosenTaskText = chosenTask[0].taskText;
-  // let chosenTaskImportance = chosenTask[0].importance;
 
-  const updateTaskHandler = (task) => {
-    console.log("Updating...!");
+  const defaultTaskInputValue =
+    chosenTask === null ? "" : chosenTask[0].taskText;
+  console.log(defaultTaskInputValue);
+
+  const defaultImportanceInputValue =
+    chosenTask === null ? "" : chosenTask[0].importance;
+
+  const [taskInput, setTaskInput] = useState(defaultTaskInputValue);
+  const [importanceInput, setImportanceInput] = useState(
+    defaultImportanceInputValue
+  );
+
+  console.log(taskInput, importanceInput);
+
+  useEffect(() => {
+    console.log("re-rendering");
+  }, [chosenTask, defaultTaskInputValue, defaultImportanceInputValue]);
+
+  // useEffect(() => {
+  //   const defaultTaskInputValue =
+  //   chosenTask === null ? "" : chosenTask[0].taskText;
+  // console.log(defaultTaskInputValue);
+
+  // const defaultImportanceInputValue =
+  //   chosenTask === null ? "" : chosenTask[0].importance;
+  //   console.log("re-rendering");
+  // }, [chosenTask]);
+
+  const changeImportanceHandler = (e) => {
+    setImportanceInput(e.target.value);
+    console.log(e.target.value);
   };
 
   const changeTaskTextHandler = (e) => {
+    setTaskInput(e.target.value);
     console.log(e.target.value);
-    // setEditTaskText(e.target.value);
-    let value = {
-      taskText: e.target.value,
+  };
+
+  const updateTaskHandler = () => {
+    const updatedTaskText = taskInput;
+    const updatedImportance = importanceInput;
+
+    const updatedTask = {
+      id: chosenTask[0].id,
+      taskText: updatedTaskText,
+      dueDate: chosenTask[0].dueDate,
+      importance: updatedImportance,
     };
-    console.log(typeof value);
-    dispatch(listActions.changeTaskText(e.target.value));
-    console.log(chosenTask.taskText);
+
+    dispatch(listActions.updateSelectedTask(updatedTask));
+
+    setTaskInput("");
+    setImportanceInput("");
+    console.log("Are you fucking sure???");
   };
 
   return (
-    <Modal onClose={props.onClose}>
+    <div onClose={() => {}}>
       <div>
         <h3>Edit your task</h3>
-        {/* <p>{chosenTask.taskText}</p> */}
         <input
-        // defaultValue={chosenTaskText}
-        // defaultValue={chosenTask.taskText}
-        // onChange={changeTaskTextHandler}
+          type="text"
+          onChange={changeTaskTextHandler}
+          // Original Code
+          // defaultValue={defaultTaskInputValue}
+          defaultValue={taskInput}
         />
-        {/* <select name="importance" defaultValue={chosenTask[0].importance}> */}
-        <select name="importance">
-          <option value="">-</option>
+        <select
+          name="importance"
+          // defaultValue={chosenTask[0].importance}
+          defaultValue={importanceInput}
+          onChange={changeImportanceHandler}
+        >
+          {/* <option value="">-</option> */}
           <option value="High">High</option>
           <option value="Normal">Normal</option>
           <option value="Low">Low</option>
@@ -46,7 +89,7 @@ const EditTask = (props) => {
         <button onClick={updateTaskHandler}>Update</button>
         <button onClick={props.onClose}>Close</button>
       </div>
-    </Modal>
+    </div>
   );
 };
 
