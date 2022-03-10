@@ -79,11 +79,14 @@ const EditTask = (props) => {
   //   </div>
   // );
   console.log(props.editTaskIndex);
+  console.log(props.editTaskId);
 
   const dispatch = useDispatch();
 
-  const [taskInput, setTaskInput] = useState("");
-  const [importanceInput, setImportanceInput] = useState("");
+  const [taskInput, setTaskInput] = useState(props.defaultTaskText);
+  const [importanceInput, setImportanceInput] = useState(
+    props.defaultImportance
+  );
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -91,7 +94,8 @@ const EditTask = (props) => {
 
     dispatch(
       listActions.updateSelectedTask({
-        index: props.editTaskIndex,
+        id: props.editTaskId,
+        // index: props.editTaskIndex,
         taskText: taskInput,
         importance: importanceInput,
       })
@@ -108,19 +112,25 @@ const EditTask = (props) => {
     setImportanceInput(e.target.value);
   };
 
+  useEffect(() => {
+    setTaskInput(props.defaultTaskText);
+    setImportanceInput(props.defaultImportance);
+  }, [props.defaultTaskText, props.defaultImportance]);
+
   return (
     <div>
       <form onSubmit={submitHandler}>
         <h3>Edit Your Task</h3>
         <input
-          defaultValue={props.defaultTaskText}
+          value={taskInput}
+          // defaultValue={props.defaultTaskText}
           onChange={taskInputChangeHandler}
         />
         <select
           name="importance"
+          value={importanceInput}
           defaultValue={props.defaultImportance}
           onChange={importanceInputChangeHandler}
-          // defaultValue={chosenTask[0].importance}
         >
           <option value="High">High</option>
           <option value="Normal">Normal</option>

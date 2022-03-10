@@ -5,7 +5,6 @@ const listSlice = createSlice({
   initialState: {
     tasks: [],
     totalQuantity: 0,
-    // selectedTask: null,
   },
   reducers: {
     addTaskToList(state, action) {
@@ -20,20 +19,16 @@ const listSlice = createSlice({
       console.log(state.tasks);
       state.tasks.push(newTask);
     },
-    editSelectedTask(state, action) {
-      console.log("Fixing!!");
-      // state.selectedTask = null;
-      // console.log(state.selectedTask);
-      // const chosenTask = state.tasks.filter(
-      //   (task) => task.id === action.payload
-      // );
-      // console.log(chosenTask);
-      // state.selectedTask = chosenTask;
-      // console.log(state.selectedTask[0].taskText);
-    },
     updateSelectedTask(state, action) {
-      console.log(state.tasks);
-      console.log(state.tasks[action.payload.index]);
+      // console.log(action.payload[0].taskText);
+      const updatingTaskId = action.payload.id;
+      const updatingTask = state.tasks.find(
+        (task) => task.id === updatingTaskId
+      );
+      console.log(updatingTask);
+      updatingTask.taskText = action.payload.taskText;
+      updatingTask.importance = action.payload.importance;
+      console.log(updatingTask);
       // state.tasks[action.payload.id].taskText = action.payload.taskText;
       // state.tasks[action.payload.id].importance = action.payload.importance;
       // const updatingTask = state.tasks.filter((task) => task.id )

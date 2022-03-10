@@ -11,6 +11,7 @@ const TaskList = (props) => {
   const totalQuantityOfTasks = useSelector((state) => state.list.totalQuantity);
 
   const [allTask, setAllTask] = useState(tasks);
+  const [editTaskId, setEditTaskId] = useState();
   const [editTaskIndex, setEditTaskIndex] = useState(null);
   const [modalDefaultTaskText, setModalDefaultTaskText] = useState("");
   const [modalDefaultImportance, setModalDefaultImportance] = useState("");
@@ -25,9 +26,10 @@ const TaskList = (props) => {
     setIsModalShown(false);
   };
 
-  const startEditingHandler = (taskText, index, importance) => {
+  const startEditingHandler = (taskText, index, importance, id) => {
     // Original code
     // dispatch(listActions.editSelectedTask(task));
+    setEditTaskId(id);
     setEditTaskIndex(index);
     setModalDefaultTaskText(taskText);
     setModalDefaultImportance(importance);
@@ -50,7 +52,12 @@ const TaskList = (props) => {
             <p>{task.importance}</p>
             <button
               onClick={() =>
-                startEditingHandler(task.taskText, index, task.importance)
+                startEditingHandler(
+                  task.taskText,
+                  index,
+                  task.importance,
+                  task.id
+                )
               }
             >
               Edit
@@ -71,6 +78,7 @@ const TaskList = (props) => {
         <EditTask
           onOpen={openModalHandler}
           onClose={closeModalHandler}
+          editTaskId={editTaskId}
           editTaskIndex={editTaskIndex}
           defaultTaskText={modalDefaultTaskText}
           defaultImportance={modalDefaultImportance}
