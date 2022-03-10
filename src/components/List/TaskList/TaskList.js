@@ -7,12 +7,10 @@ import EditTask from "../EditTask/EditTask";
 const TaskList = (props) => {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.list.tasks);
-  const selectedTask = useSelector((state) => state.list.selectedTask);
   const totalQuantityOfTasks = useSelector((state) => state.list.totalQuantity);
 
   const [allTask, setAllTask] = useState(tasks);
   const [editTaskId, setEditTaskId] = useState();
-  const [editTaskIndex, setEditTaskIndex] = useState(null);
   const [modalDefaultTaskText, setModalDefaultTaskText] = useState("");
   const [modalDefaultImportance, setModalDefaultImportance] = useState("");
 
@@ -27,13 +25,9 @@ const TaskList = (props) => {
   };
 
   const startEditingHandler = (taskText, index, importance, id) => {
-    // Original code
-    // dispatch(listActions.editSelectedTask(task));
     setEditTaskId(id);
-    setEditTaskIndex(index);
     setModalDefaultTaskText(taskText);
     setModalDefaultImportance(importance);
-    console.log(index);
     openModalHandler();
   };
 
@@ -42,7 +36,6 @@ const TaskList = (props) => {
   };
 
   useEffect(() => {
-    // console.log(tasks);
     setAllTask(
       tasks.map((task, index) => {
         return (
@@ -69,7 +62,6 @@ const TaskList = (props) => {
         );
       })
     );
-    console.log(tasks);
   }, [tasks]);
 
   return (
@@ -79,7 +71,6 @@ const TaskList = (props) => {
           onOpen={openModalHandler}
           onClose={closeModalHandler}
           editTaskId={editTaskId}
-          editTaskIndex={editTaskIndex}
           defaultTaskText={modalDefaultTaskText}
           defaultImportance={modalDefaultImportance}
         />
