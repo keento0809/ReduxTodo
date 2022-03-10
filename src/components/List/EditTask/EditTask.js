@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { listActions } from "../../../store/list-slice";
+import Modal from "../../Modal/Modal";
 
 import styled from "styled-components";
 
@@ -70,14 +71,13 @@ const EditTask = (props) => {
   }, [props.defaultTaskText, props.defaultImportance]);
 
   return (
-    <TestStyle>
+    <Modal>
       <form onSubmit={submitHandler}>
         <h3>Edit Your Task</h3>
         <input value={taskInput} onChange={taskInputChangeHandler} />
         <select
           name="importance"
           value={importanceInput}
-          defaultValue={props.defaultImportance}
           onChange={importanceInputChangeHandler}
         >
           <option value="High">High</option>
@@ -87,7 +87,7 @@ const EditTask = (props) => {
         <button>Update</button>
         <button onClick={props.onClose}>Close</button>
       </form>
-    </TestStyle>
+    </Modal>
   );
 };
 

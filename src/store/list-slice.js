@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const listSlice = createSlice({
   name: "list",
@@ -18,6 +18,7 @@ const listSlice = createSlice({
       state.tasks.push(newTask);
     },
     updateSelectedTask(state, action) {
+      console.log(current(state.tasks));
       const updatingTaskId = action.payload.id;
       const updatingTask = state.tasks.find(
         (task) => task.id === updatingTaskId
