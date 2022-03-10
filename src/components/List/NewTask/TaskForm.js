@@ -12,17 +12,14 @@ const TaskForm = () => {
 
   const changeTaskTextHandler = (e) => {
     setTaskText(e.target.value);
-    console.log(e.target.value);
   };
 
   const changeDueDateHandler = (e) => {
     setDueDate(e.target.value);
-    console.log(e.target.value);
   };
 
   const changeImportanceHandler = (e) => {
     setImportance(e.target.value);
-    console.log(e.target.value);
   };
 
   const submitHandler = (e) => {
