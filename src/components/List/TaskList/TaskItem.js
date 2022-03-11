@@ -6,6 +6,8 @@ const TaskItem = (props) => {
       <p>{props.taskText}</p>
       <p>{props.dueDate}</p>
       <p>{props.importance}</p>
+      <button onClick={props.onStartEditing}>Edit</button>
+      <button onClick={props.onRemoveItem}>Remove</button>
     </li>
   );
 };

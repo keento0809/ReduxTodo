@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { listActions } from "../../../store/list-slice";
 
 import EditTask from "../EditTask/EditTask";
+import TaskItem from "./TaskItem";
 
 const TaskList = (props) => {
   const dispatch = useDispatch();
@@ -39,26 +40,23 @@ const TaskList = (props) => {
     setAllTask(
       tasks.map((task, index) => {
         return (
-          <li key={index} id={task.id}>
-            <p>{task.taskText}</p>
-            <p>{task.dueDate}</p>
-            <p>{task.importance}</p>
-            <button
-              onClick={() =>
-                startEditingHandler(
-                  task.taskText,
-                  index,
-                  task.importance,
-                  task.id
-                )
-              }
-            >
-              Edit
-            </button>
-            <button onClick={removeItemHandler.bind(null, task.id)}>
-              Remove
-            </button>
-          </li>
+          <TaskItem
+            key={index}
+            index={index}
+            id={task.id}
+            taskText={task.taskText}
+            dueDate={task.dueDate}
+            importance={task.importance}
+            onStartEditing={() =>
+              startEditingHandler(
+                task.taskText,
+                index,
+                task.importance,
+                task.id
+              )
+            }
+            onRemoveItem={removeItemHandler.bind(null, task.id)}
+          />
         );
       })
     );

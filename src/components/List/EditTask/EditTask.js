@@ -38,7 +38,7 @@ const EditTask = (props) => {
   }, [props.defaultTaskText, props.defaultImportance]);
 
   return (
-    <Modal>
+    <Modal onClose={props.onClose}>
       <form onSubmit={submitHandler}>
         <h3>Edit Your Task</h3>
         <input value={taskInput} onChange={taskInputChangeHandler} />
