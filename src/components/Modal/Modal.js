@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import classes from "./Modal.module.css";
 
@@ -21,22 +21,6 @@ const Modal = (props) => {
     return <div className={classes.backdrop} onClick={props.onClose}></div>;
   };
 
-  useEffect(() => {
-    console.log("re-rendered");
-  }, [props]);
-
-  const ModalOverlay = (props) => {
-    useEffect(() => {
-      console.log("re-rendered");
-    }, [props]);
-
-    return (
-      <div className={classes.modalOverlay} onClose={props.onClose}>
-        {props.children}
-      </div>
-    );
-  };
-
   const portalElement = document.getElementById("modal");
 
   return (
@@ -47,7 +31,6 @@ const Modal = (props) => {
       )}
       ;
       {ReactDOM.createPortal(
-        // <ModalOverlay>{props.children}</ModalOverlay>,
         <ModalOverlayStyle>{props.children}</ModalOverlayStyle>,
         portalElement
       )}

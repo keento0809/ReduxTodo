@@ -16,7 +16,6 @@ const TaskForm = () => {
 
   const changeDueDateHandler = (e) => {
     setDueDate(e.target.value);
-    // console.log(e.targe.value);
   };
 
   const changeImportanceHandler = (e) => {

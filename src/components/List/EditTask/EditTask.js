@@ -1,39 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { listActions } from "../../../store/list-slice";
 import Modal from "../../Modal/Modal";
-
-import styled from "styled-components";
-
-const TestBackdropStyle = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 5;
-`;
-
-const TestStyle = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 2rem;
-  background: aquamarine;
-  border: 1px solid aquamarine;
-  border-radius: 12px;
-  z-index: 10;
-`;
-
-const TestBackdrop = (props) => {
-  return (
-    <TestBackdropStyle onClick={props.onClose}>
-      {props.children}
-    </TestBackdropStyle>
-  );
-};
 
 const EditTask = (props) => {
   const dispatch = useDispatch();
@@ -42,7 +10,6 @@ const EditTask = (props) => {
   const [importanceInput, setImportanceInput] = useState(
     props.defaultImportance
   );
-  // const [dueDateInput,setDueDateInput] = useState();
 
   const submitHandler = (e) => {
     e.preventDefault();
