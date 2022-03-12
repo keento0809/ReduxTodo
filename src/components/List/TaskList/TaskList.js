@@ -76,10 +76,12 @@ const TaskList = (props) => {
           defaultImportance={modalDefaultImportance}
         />
       )}
-      <Typography variant="h5" component="h2">
+      <Typography variant="h5" component="h2" color="text.primary">
         Task List
       </Typography>
-      <p>{totalQuantityOfTasks} tasks left.</p>
+      <Typography variant="body1" component="body1" color="text.primary">
+        {totalQuantityOfTasks} tasks left.
+      </Typography>
       <ul>{allTask}</ul>
     </div>
   );

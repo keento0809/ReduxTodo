@@ -18,16 +18,12 @@ const Header = () => {
         paddingBottom={2}
         sx={{ bgcolor: "background.paper" }}
       >
-        <Typography
-          variant="h4"
-          component="h4"
-          color="primary"
-          fontWeight="fontWeightBold"
-          letterSpacing="-2px"
-        >
+        <Typography variant="h4" component="h4" color="primary">
           Redux ToDo
         </Typography>
-        <span color="text.primary">{totalQuantityOfTasks} tasks left</span>
+        <Typography variant="body1" component="body1">
+          {totalQuantityOfTasks} tasks left
+        </Typography>
       </Box>
     </header>
   );
