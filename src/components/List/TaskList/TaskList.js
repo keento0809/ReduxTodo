@@ -6,7 +6,8 @@ import EditTask from "../EditTask/EditTask";
 import TaskItem from "./TaskItem";
 
 import Typography from "@mui/material/Typography";
-import { ThemeProvider } from "styled-components";
+import Box from "@mui/material/Box";
+import ListUI from "../../UI/ListUI";
 
 const TaskList = (props) => {
   const dispatch = useDispatch();
@@ -66,7 +67,7 @@ const TaskList = (props) => {
   }, [tasks]);
 
   return (
-    <div>
+    <Box sx={{ bgcolor: "background.default" }}>
       {isModalShown && (
         <EditTask
           onOpen={openModalHandler}
@@ -76,14 +77,23 @@ const TaskList = (props) => {
           defaultImportance={modalDefaultImportance}
         />
       )}
-      <Typography variant="h5" component="h2" color="text.primary">
-        Task List
-      </Typography>
-      <Typography variant="body1" component="body1" color="text.primary">
-        {totalQuantityOfTasks} tasks left.
-      </Typography>
+      <Box display="flex" justifyContent="flex-start" alignItems="flex-end">
+        <Typography
+          variant="h5"
+          component="h2"
+          color="text.primary"
+          paddingRight={4}
+        >
+          Task List
+        </Typography>
+        <Typography variant="body1" component="body1" color="text.primary">
+          {totalQuantityOfTasks} tasks left.
+        </Typography>
+      </Box>
       <ul>{allTask}</ul>
-    </div>
+      {/* test temporary */}
+      <ListUI />
+    </Box>
   );
 };
 
