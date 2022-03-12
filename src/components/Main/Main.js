@@ -6,11 +6,6 @@ import EditTask from "../List/EditTask/EditTask";
 const Main = () => {
   return (
     <div>
-      {/* test (temporary) */}
-      {/* <EditTask /> */}
-      {/* {isModalShown && (
-        <EditTask onOpen={openModalHandler} onClose={closeModalHandler} />
-      )} */}
       <Header />
       <List />
     </div>

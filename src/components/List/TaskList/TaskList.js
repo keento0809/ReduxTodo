@@ -5,6 +5,9 @@ import { listActions } from "../../../store/list-slice";
 import EditTask from "../EditTask/EditTask";
 import TaskItem from "./TaskItem";
 
+import Typography from "@mui/material/Typography";
+import { ThemeProvider } from "styled-components";
+
 const TaskList = (props) => {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.list.tasks);
@@ -73,7 +76,9 @@ const TaskList = (props) => {
           defaultImportance={modalDefaultImportance}
         />
       )}
-      <h2>Task List</h2>
+      <Typography variant="h5" component="h2">
+        Task List
+      </Typography>
       <p>{totalQuantityOfTasks} tasks left.</p>
       <ul>{allTask}</ul>
     </div>

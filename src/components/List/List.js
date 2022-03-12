@@ -2,12 +2,14 @@ import React from "react";
 import NewTask from "./NewTask/NewTask";
 import TaskList from "./TaskList/TaskList";
 
+import Box from "@mui/system/Box";
+
 const List = (props) => {
   return (
-    <div>
+    <Box>
       <NewTask />
       <TaskList onOpen={props.onOpen} />
-    </div>
+    </Box>
   );
 };
 
