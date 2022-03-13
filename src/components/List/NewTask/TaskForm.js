@@ -188,8 +188,8 @@ const TaskForm = () => {
           <option value="Low">Low</option>
         </MultipleSelectPlaceholder> */}
       {/* original code. DO NOT CHANGE !! */}
-      <button>Add</button>
-      {/* <ButtonUI name="add" sx={{ cursor: "pointer" }} /> */}
+      {/* <button>Add</button> */}
+      <ButtonUI name="add" sx={{ cursor: "pointer" }} />
     </form>
   );
 };
