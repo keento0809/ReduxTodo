@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import Header from "../Header/Header";
 import List from "../List/List";
-import EditTask from "../List/EditTask/EditTask";
 
 const Main = () => {
   return (
-    <div>
+    <div className="メインやでい">
       <Header />
       <List />
     </div>

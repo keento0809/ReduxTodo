@@ -15,7 +15,19 @@ const PaperUI = (props) => {
         },
       }}
     >
-      <Paper sx={{ bgcolor: "background.default" }} padding={4} elevation={8}>
+      <Paper
+        sx={{
+          bgcolor: "background.default",
+          borderRadius: "12px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          listStyle: "none",
+        }}
+        padding={4}
+        elevation={8}
+        className="ペーパークラスやでい"
+      >
         {props.children}
       </Paper>
     </Box>

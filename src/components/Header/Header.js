@@ -4,28 +4,36 @@ import { useSelector } from "react-redux";
 
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import ContainerUI from "../UI/ContainerUI";
+import { styled } from "@mui/system";
+
+const HeaderComponent = styled("header")({
+  backgroundColor: "#FFF176",
+});
 
 const Header = () => {
   const totalQuantityOfTasks = useSelector((state) => state.list.totalQuantity);
 
   return (
-    <header>
-      <Box
-        display="flex"
-        justifyContent="space-around"
-        alignItems="center"
-        paddingTop={2}
-        paddingBottom={2}
-        sx={{ bgcolor: "background.paper" }}
-      >
-        <Typography variant="h4" component="h4" color="primary">
-          Redux ToDo
-        </Typography>
-        <Typography variant="body1" component="span">
-          {totalQuantityOfTasks} tasks left
-        </Typography>
-      </Box>
-    </header>
+    <HeaderComponent>
+      <ContainerUI>
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          paddingTop={1}
+          paddingBottom={1}
+          // sx={{ bgcolor: "background.paper" }}
+        >
+          <Typography variant="h4" component="h4" color="primary">
+            Redux ToDo
+          </Typography>
+          <Typography variant="body1" component="span">
+            {totalQuantityOfTasks} tasks left
+          </Typography>
+        </Box>
+      </ContainerUI>
+    </HeaderComponent>
   );
 };
 

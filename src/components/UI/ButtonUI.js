@@ -1,10 +1,13 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 const ButtonUI = (props) => {
   return (
-    <Button variant="outlined" type="submit" color="secondary">
-      {props.name}
+    <Button variant="contained" type="submit" color="secondary">
+      <Typography variant="body2" component="p">
+        {props.name}
+      </Typography>
     </Button>
   );
 };

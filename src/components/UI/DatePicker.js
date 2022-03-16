@@ -9,6 +9,7 @@ import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 import MobileDatePicker from "@mui/lab/MobileDatePicker";
 
 import DateAdapter from "@mui/lab/AdapterDateFns";
+import Box from "@mui/material/Box";
 
 const DatePickerUI = (props) => {
   const [value, setValue] = React.useState(new Date());
@@ -28,16 +29,18 @@ const DatePickerUI = (props) => {
 
   return (
     // <LocalizationProvider dateAdapter={AdapterDateFns}>
-    <LocalizationProvider dateAdapter={DateAdapter}>
-      <DesktopDatePicker
-        label="Due date"
-        inputFormat="MM/dd/yyyy"
-        // default value
-        value={value}
-        onChange={handleChange}
-        renderInput={(params) => <TextField color="secondary" {...params} />}
-      />
-    </LocalizationProvider>
+    <Box marginBottom={1}>
+      <LocalizationProvider dateAdapter={DateAdapter}>
+        <DesktopDatePicker
+          label="Due date"
+          inputFormat="MM/dd/yyyy"
+          // default value
+          value={value}
+          onChange={handleChange}
+          renderInput={(params) => <TextField color="secondary" {...params} />}
+        />
+      </LocalizationProvider>
+    </Box>
   );
 };
 

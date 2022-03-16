@@ -7,6 +7,12 @@ import TaskItem from "./TaskItem";
 
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import ContainerUI from "../../UI/ContainerUI";
+import { styled } from "@mui/system";
+
+const UlComponent = styled("ul")({
+  paddingLeft: 0,
+});
 
 const TaskList = (props) => {
   const dispatch = useDispatch();
@@ -66,31 +72,44 @@ const TaskList = (props) => {
   }, [tasks]);
 
   return (
-    <Box sx={{ bgcolor: "background.paper" }}>
-      {isModalShown && (
-        <EditTask
-          onOpen={openModalHandler}
-          onClose={closeModalHandler}
-          editTaskId={editTaskId}
-          defaultTaskText={modalDefaultTaskText}
-          defaultImportance={modalDefaultImportance}
-        />
-      )}
-      <Box display="flex" justifyContent="flex-start" alignItems="flex-end">
-        <Typography
-          variant="h5"
-          component="h2"
-          color="text.primary"
-          paddingRight={4}
-        >
-          Task List
-        </Typography>
-        <Typography variant="body1" component="span" color="text.primary">
-          {totalQuantityOfTasks} tasks left.
-        </Typography>
+    <ContainerUI>
+      <Box
+        sx={{
+          bgcolor: "background.paper",
+          height: "100%",
+          textAlign: "center",
+          borderRadius: "12px",
+        }}
+        paddingTop={2}
+        paddingBottom={2}
+      >
+        {isModalShown && (
+          <EditTask
+            onOpen={openModalHandler}
+            onClose={closeModalHandler}
+            editTaskId={editTaskId}
+            defaultTaskText={modalDefaultTaskText}
+            defaultImportance={modalDefaultImportance}
+          />
+        )}
+        <ContainerUI>
+          <Box display="flex" justifyContent="center" alignItems="center">
+            <Typography
+              variant="h5"
+              component="h2"
+              color="text.primary"
+              paddingRight={4}
+            >
+              Task List
+            </Typography>
+            <Typography variant="body1" component="span" color="text.primary">
+              {totalQuantityOfTasks} tasks left.
+            </Typography>
+          </Box>
+          <UlComponent>{allTask}</UlComponent>
+        </ContainerUI>
       </Box>
-      <ul>{allTask}</ul>
-    </Box>
+    </ContainerUI>
   );
 };
 

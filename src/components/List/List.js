@@ -3,12 +3,15 @@ import NewTask from "./NewTask/NewTask";
 import TaskList from "./TaskList/TaskList";
 
 import Box from "@mui/system/Box";
+import ContainerUI from "../UI/ContainerUI";
 
 const List = (props) => {
   return (
-    <Box>
-      <NewTask />
-      <TaskList onOpen={props.onOpen} />
+    <Box className="これはlistのbox">
+      <ContainerUI className="これはListのContainerUI">
+        <NewTask />
+        <TaskList onOpen={props.onOpen} />
+      </ContainerUI>
     </Box>
   );
 };

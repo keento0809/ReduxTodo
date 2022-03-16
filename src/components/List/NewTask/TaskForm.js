@@ -22,9 +22,10 @@ const MenuProps = {
 
 const TaskForm = () => {
   const dispatch = useDispatch();
+  const defaultDate = new Date();
 
   const [taskText, setTaskText] = useState("");
-  const [dueDate, setDueDate] = useState(new Date());
+  const [dueDate, setDueDate] = useState(defaultDate);
   const [importance, setImportance] = useState("");
 
   const changeTaskTextHandler = (e) => {

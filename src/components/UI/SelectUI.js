@@ -3,10 +3,11 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import Box from "@mui/material/Box";
 
 const SelectUI = (props) => {
   return (
-    <div>
+    <Box marginBottom={2}>
       <FormControl
         variant="standard"
         sx={{ m: 1, minWidth: 120, color: "secondary" }}
@@ -30,7 +31,7 @@ const SelectUI = (props) => {
           <MenuItem value={props.value3}>{props.value3}</MenuItem>
         </Select>
       </FormControl>
-    </div>
+    </Box>
   );
 };
 

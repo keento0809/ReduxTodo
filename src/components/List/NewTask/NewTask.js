@@ -6,8 +6,13 @@ import Box from "@mui/material/Box";
 
 const NewTask = () => {
   return (
-    <Box sx={{ bgcolor: "background.default" }}>
-      <Typography variant="h5" component="h2">
+    <Box
+      sx={{ bgcolor: "background.default" }}
+      paddingTop={4}
+      paddingBottom={4}
+      textAlign={"center"}
+    >
+      <Typography variant="h5" component="h2" color="white">
         Add New Task
       </Typography>
       <TaskForm />
