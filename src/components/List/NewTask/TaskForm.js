@@ -5,6 +5,7 @@ import { listActions } from "../../../store/list-slice";
 
 // UI Components
 import ButtonUI from "../../UI/ButtonUI";
+import DatePickerUI from "../../UI/DatePicker";
 import InputUI from "../../UI/InputUI";
 import SelectUI from "../../UI/SelectUI";
 
@@ -23,15 +24,15 @@ const TaskForm = () => {
   const dispatch = useDispatch();
 
   const [taskText, setTaskText] = useState("");
-  const [dueDate, setDueDate] = useState("");
+  const [dueDate, setDueDate] = useState(new Date());
   const [importance, setImportance] = useState("");
 
   const changeTaskTextHandler = (e) => {
     setTaskText(e.target.value);
   };
 
-  const changeDueDateHandler = (e) => {
-    setDueDate(e.target.value);
+  const changeDueDateHandler = (val) => {
+    setDueDate(val);
   };
 
   const changeImportanceHandler = (e) => {
@@ -58,8 +59,6 @@ const TaskForm = () => {
 
   return (
     <form onSubmit={submitHandler}>
-      {/* Original code. DO NOT CHANGE !! */}
-      <input type="text" value={taskText} onChange={changeTaskTextHandler} />
       <InputUI
         type="text"
         label="Text here"
@@ -67,27 +66,20 @@ const TaskForm = () => {
         onChange={changeTaskTextHandler}
       />
       {/* Original code. DO NOT CHANGE !! */}
-      <input
+      {/* <input
+        type="date"
+        name="calendar"
+        max="9999-12-31"
+        onChange={changeDueDateHandler}
+        value={dueDate}
+      /> */}
+      <DatePickerUI
         type="date"
         name="calendar"
         max="9999-12-31"
         onChange={changeDueDateHandler}
         value={dueDate}
       />
-      {/* testCode */}
-      {/* <DatePickerUI /> */}
-      {/* Original code DO NOT CHANGE !! */}
-      <select
-        name="importance"
-        id=""
-        value={importance}
-        onChange={changeImportanceHandler}
-      >
-        <option valueNothing="">-</option>
-        <option value1="High">High</option>
-        <option value2="Normal">Normal</option>
-        <option value3="Low">Low</option>
-      </select>
       <SelectUI
         name="importance"
         value1="High"

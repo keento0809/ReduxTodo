@@ -11,6 +11,7 @@ const InputUI = (props) => {
       }}
       noValidate
       autoComplete="off"
+      marginBottom={4}
     >
       <TextField
         id="standard-basic"
@@ -20,6 +21,7 @@ const InputUI = (props) => {
         type={props.type}
         value={props.value}
         onChange={props.onChange}
+        sx={{ borderBottomColor: "white" }}
       />
     </Box>
   );

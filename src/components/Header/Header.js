@@ -21,7 +21,7 @@ const Header = () => {
         <Typography variant="h4" component="h4" color="primary">
           Redux ToDo
         </Typography>
-        <Typography variant="body1" component="body1">
+        <Typography variant="body1" component="span">
           {totalQuantityOfTasks} tasks left
         </Typography>
       </Box>
