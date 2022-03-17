@@ -5,15 +5,17 @@ import Paper from "@mui/material/Paper";
 const PaperUI = (props) => {
   return (
     <Box
-      sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        "& > :not(style)": {
-          m: 1,
-          width: 180,
-          height: 180,
-        },
-      }}
+      // sx={{
+      //   // display: "flex",
+      //   // flexWrap: "wrap",
+      //   "& > :not(style)": {
+      //     m: 1,
+      //     width: 180,
+      //     height: 180,
+      //   },
+      // }}
+      sx={{ display: "inline-block", width: 140, m: 1 }}
+      className="ペーパーネームのBOXや"
     >
       <Paper
         sx={{
