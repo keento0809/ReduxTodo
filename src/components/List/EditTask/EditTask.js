@@ -2,6 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { listActions } from "../../../store/list-slice";
 import Modal from "../../Modal/Modal";
+import Typography from "@mui/material/Typography";
+import InputUI from "../../UI/InputUI";
+import SelectUI from "../../UI/SelectUI";
+import TaskButton from "../../UI/TaskButtonUI";
+import { styled } from "@mui/material";
+
+const InputStyle = styled(InputUI)({
+  marginBottom: 0,
+});
 
 const EditTask = (props) => {
   const dispatch = useDispatch();
@@ -40,9 +49,18 @@ const EditTask = (props) => {
   return (
     <Modal onClose={props.onClose}>
       <form onSubmit={submitHandler}>
-        <h3>Edit Your Task</h3>
-        <input value={taskInput} onChange={taskInputChangeHandler} />
-        <select
+        <Typography variant="h5" component="h5">
+          Edit Your Task
+        </Typography>
+        {/* Original code */}
+        {/* <input value={taskInput} onChange={taskInputChangeHandler} /> */}
+        <InputUI
+          value={taskInput}
+          onChange={taskInputChangeHandler}
+          margin={0}
+        />
+        {/* Original code */}
+        {/* <select
           name="importance"
           value={importanceInput}
           onChange={importanceInputChangeHandler}
@@ -50,9 +68,17 @@ const EditTask = (props) => {
           <option value="High">High</option>
           <option value="Normal">Normal</option>
           <option value="Low">Low</option>
-        </select>
-        <button>Update</button>
-        <button onClick={props.onClose}>Close</button>
+        </select> */}
+        <SelectUI
+          name="importance"
+          value1="High"
+          value2="Normal"
+          value3="Low"
+          value={importanceInput}
+          onChange={importanceInputChangeHandler}
+        />
+        <TaskButton type="submit" name="Update" />
+        <TaskButton onClick={props.onClose} name="Close" />
       </form>
     </Modal>
   );

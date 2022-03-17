@@ -12,6 +12,10 @@ import { styled } from "@mui/system";
 
 const UlComponent = styled("ul")({
   paddingLeft: 0,
+  display: "flex",
+  flexDirection: "row",
+  flexWrap: "wrap",
+  justifyContent: "center",
 });
 
 const TaskList = (props) => {
@@ -77,6 +81,7 @@ const TaskList = (props) => {
         sx={{
           bgcolor: "background.paper",
           height: "100%",
+          minHeight: "300px",
           textAlign: "center",
           borderRadius: "12px",
         }}

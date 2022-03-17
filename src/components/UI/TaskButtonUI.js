@@ -6,6 +6,7 @@ import { Typography } from "@mui/material";
 const TaskButton = (props) => {
   return (
     <Button
+      type={props.type}
       onClick={props.onClick}
       variant="contained"
       size="small"

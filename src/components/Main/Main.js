@@ -4,7 +4,7 @@ import List from "../List/List";
 
 const Main = () => {
   return (
-    <div className="メインやでい">
+    <div className="Main">
       <Header />
       <List />
     </div>

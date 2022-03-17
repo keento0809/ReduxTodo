@@ -11,7 +11,7 @@ const InputUI = (props) => {
       }}
       noValidate
       autoComplete="off"
-      marginBottom={4}
+      marginBottom={props.margin}
     >
       <TextField
         id="standard-basic"

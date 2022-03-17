@@ -14,7 +14,7 @@ const PaperUI = (props) => {
       //     height: 180,
       //   },
       // }}
-      sx={{ display: "inline-block", width: 140, m: 1 }}
+      sx={{ display: "inline-block", minWidth: 140, m: 1 }}
       className="ペーパーネームのBOXや"
     >
       <Paper
@@ -26,7 +26,7 @@ const PaperUI = (props) => {
           alignItems: "center",
           listStyle: "none",
         }}
-        padding={4}
+        padding={6}
         elevation={8}
         className="ペーパークラスやでい"
       >

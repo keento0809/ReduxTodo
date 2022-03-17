@@ -65,6 +65,7 @@ const TaskForm = () => {
         label="Text here"
         value={taskText}
         onChange={changeTaskTextHandler}
+        margin={4}
       />
       {/* Original code. DO NOT CHANGE !! */}
       {/* <input

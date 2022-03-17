@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import classes from "./Modal.module.css";
 
 import styled from "styled-components";
+import PaperUI from "../UI/PaperUI";
+import { Paper } from "@mui/material";
 
 const ModalOverlayStyle = styled.div`
   padding: 2rem;
@@ -31,6 +33,7 @@ const Modal = (props) => {
       )}
       ;
       {ReactDOM.createPortal(
+        // Original code
         <ModalOverlayStyle>{props.children}</ModalOverlayStyle>,
         portalElement
       )}

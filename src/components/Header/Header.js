@@ -21,12 +21,12 @@ const Header = () => {
           display="flex"
           justifyContent="space-between"
           alignItems="center"
-          paddingTop={1}
-          paddingBottom={1}
+          paddingTop={1.5}
+          paddingBottom={1.5}
           // sx={{ bgcolor: "background.paper" }}
         >
-          <Typography variant="h4" component="h4" color="primary">
-            Redux ToDo
+          <Typography variant="h5" component="h4" color="primary">
+            ReduxToDo
           </Typography>
           <Typography variant="body1" component="span">
             {totalQuantityOfTasks} tasks left
