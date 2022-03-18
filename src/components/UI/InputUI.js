@@ -17,11 +17,11 @@ const InputUI = (props) => {
         id="standard-basic"
         label={props.label}
         variant="standard"
-        color="secondary"
+        color="primary"
         type={props.type}
         value={props.value}
         onChange={props.onChange}
-        sx={{ borderBottomColor: "white" }}
+        sx={{ color: "primary" }}
       />
     </Box>
   );

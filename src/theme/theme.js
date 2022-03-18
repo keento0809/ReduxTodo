@@ -14,10 +14,11 @@ export const theme = createTheme({
     background: {
       paper: "#FFF176",
       default: "#00BFA5",
+      white: "#FFF",
     },
     text: {
       primary: "#263238",
-      secondary: "white",
+      secondary: "#00BFA5",
     },
   },
   typography: {
@@ -49,6 +50,13 @@ export const theme = createTheme({
     body2: {
       fontWeight: 700,
       letterSpacing: "-1px",
+    },
+  },
+  overrides: {
+    TextField: {
+      label: {
+        color: "#263238",
+      },
     },
   },
 });

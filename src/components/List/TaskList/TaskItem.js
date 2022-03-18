@@ -6,20 +6,32 @@ import TaskButton from "../../UI/TaskButtonUI";
 import { styled } from "@mui/system";
 
 const LiComponent = styled("li")({
-  margin: 4,
+  marginTop: "1rem",
+  marginBottom: "1rem",
+  overflowWrap: "wrap",
 });
 
 const TaskItem = (props) => {
   return (
     <PaperUI key={props.id}>
       <LiComponent key={props.index} id={props.id}>
-        <Typography variant="h5" component="p" color="text.primary">
+        <Typography
+          variant="h5"
+          component="p"
+          color="text.primary"
+          paddingBottom={2}
+        >
           {props.taskText}
         </Typography>
         <Typography variant="body2" component="p" color="text.primary">
           {props.dueDate}
         </Typography>
-        <Typography variant="body2" component="p" color="text.primary">
+        <Typography
+          variant="body2"
+          component="p"
+          color="text.primary"
+          paddingBottom={1}
+        >
           {props.importance}
         </Typography>
         <TaskButton onClick={props.onStartEditing} name="Edit"></TaskButton>

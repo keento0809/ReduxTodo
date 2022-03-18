@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 
 const ButtonUI = (props) => {
   return (
-    <Button variant="contained" type="submit" color="secondary">
+    <Button variant="contained" type="submit" color={props.color}>
       <Typography variant="body2" component="p">
         {props.name}
       </Typography>

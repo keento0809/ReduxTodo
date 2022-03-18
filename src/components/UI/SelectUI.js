@@ -10,9 +10,9 @@ const SelectUI = (props) => {
     <Box marginBottom={2}>
       <FormControl
         variant="standard"
-        sx={{ m: 1, minWidth: 120, color: "secondary" }}
+        sx={{ m: 1, minWidth: 120, color: "primary" }}
       >
-        <InputLabel id="demo-simple-select-standard-label" color="secondary">
+        <InputLabel id="demo-simple-select-standard-label" color="primary">
           Importance
         </InputLabel>
         <Select

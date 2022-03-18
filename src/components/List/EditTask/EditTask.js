@@ -78,7 +78,11 @@ const EditTask = (props) => {
           onChange={importanceInputChangeHandler}
         />
         <TaskButton type="submit" name="Update" />
-        <TaskButton onClick={props.onClose} name="Close" />
+        <TaskButton
+          onClick={props.onClose}
+          name="Close"
+          color="secondary.main"
+        />
       </form>
     </Modal>
   );

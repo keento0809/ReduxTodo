@@ -37,7 +37,7 @@ const DatePickerUI = (props) => {
           // default value
           value={value}
           onChange={handleChange}
-          renderInput={(params) => <TextField color="secondary" {...params} />}
+          renderInput={(params) => <TextField color="primary" {...params} />}
         />
       </LocalizationProvider>
     </Box>

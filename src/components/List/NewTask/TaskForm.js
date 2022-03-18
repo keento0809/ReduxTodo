@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { listActions } from "../../../store/list-slice";
 
@@ -58,6 +58,10 @@ const TaskForm = () => {
     setImportance("");
   };
 
+  useEffect(() => {
+    console.log("This is useEffect.");
+  }, []);
+
   return (
     <form onSubmit={submitHandler}>
       <InputUI
@@ -90,7 +94,7 @@ const TaskForm = () => {
         value={importance}
         onChange={changeImportanceHandler}
       />
-      <ButtonUI name="add" sx={{ cursor: "pointer" }} />
+      <ButtonUI name="add" sx={{ cursor: "pointer" }} color="secondary" />
     </form>
   );
 };

@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
 
 const TaskButton = (props) => {
+  console.log(props.color);
   return (
     <Button
       type={props.type}
