@@ -35,9 +35,7 @@ const TaskItem = (props) => {
           {props.importance}
         </Typography>
         <TaskButton onClick={props.onStartEditing} name="Edit"></TaskButton>
-        <TaskButton onClick={props.onRemoveItem} name="Remove">
-          Remove
-        </TaskButton>
+        <TaskButton onClick={props.onRemoveItem} name="Done"></TaskButton>
       </LiComponent>
     </PaperUI>
   );

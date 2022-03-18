@@ -16,11 +16,16 @@ const TaskButton = (props) => {
         padding: 0.2,
         fontSize: "0.8rem",
         lineHeight: "1rem",
-        minWidth: "40px",
+        minWidth: "60px",
         margin: 0.5,
       }}
     >
-      <Typography sx={{ fontSize: "0.8rem" }} variant="body1" component="span">
+      <Typography
+        sx={{ fontSize: "0.8rem" }}
+        variant="body1"
+        component="span"
+        padding={0.5}
+      >
         {props.name}
       </Typography>
     </Button>

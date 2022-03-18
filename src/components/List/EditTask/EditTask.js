@@ -8,10 +8,6 @@ import SelectUI from "../../UI/SelectUI";
 import TaskButton from "../../UI/TaskButtonUI";
 import { styled } from "@mui/material";
 
-const InputStyle = styled(InputUI)({
-  marginBottom: 0,
-});
-
 const EditTask = (props) => {
   const dispatch = useDispatch();
 

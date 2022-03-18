@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { listActions } from "../../../store/list-slice";
 
@@ -42,6 +42,20 @@ const TaskForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    let taskTextIsValid = taskText.trim().length > 0;
+    let importanceIsValid = importance !== "" || null;
+
+    let content = "Please enter the valid name of task.";
+
+    if (taskTextIsValid && !importanceIsValid)
+      content = "Please select the importance.";
+
+    if (!taskTextIsValid || !importanceIsValid) {
+      alert(content);
+      return;
+    }
+
     const num = Math.floor(Math.random() * 10000) + 1;
 
     dispatch(
