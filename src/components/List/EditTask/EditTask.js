@@ -19,6 +19,14 @@ const EditTask = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
+    let taskInputIsValid = taskInput.trim().length > 0;
+    let content = "Please enter the valid name of task.";
+
+    if (!taskInputIsValid) {
+      alert(content);
+      return;
+    }
+
     dispatch(
       listActions.updateSelectedTask({
         id: props.editTaskId,

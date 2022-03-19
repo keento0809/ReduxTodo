@@ -7,23 +7,7 @@ import ContainerUI from "../../UI/ContainerUI";
 
 const NewTask = () => {
   return (
-    // Original code
-    // <Box
-    //   sx={{ bgcolor: "background.white", borderRadius: "12px" }}
-    //   paddingTop={4}
-    //   paddingBottom={4}
-    //   textAlign={"center"}
-    //   className="新しいタスクを入力"
-    // >
-    //   <Typography variant="h5" component="h2" color="text.primary">
-    //     Add New Task
-    //   </Typography>
-    //   <TaskForm />
-    // </Box>
-    <ContainerUI
-    // sx={{ bgcolor: "background.white" }}
-    // bgColor="background.white"
-    >
+    <ContainerUI>
       <Box
         sx={{ borderRadius: "12px", background: "background.paper" }}
         paddingTop={4}
@@ -34,7 +18,7 @@ const NewTask = () => {
         marginBottom={4}
         textAlign={"center"}
         className="新しいタスクを入力"
-        minWidth={350}
+        minWidth={300}
         maxWidth={402}
         bgcolor="background.white"
       >

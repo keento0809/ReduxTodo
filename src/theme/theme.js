@@ -18,6 +18,9 @@ export const theme = createTheme({
     },
     text: {
       primary: "#263238",
+      // ここを変えたら色を変えることができたんやけど、その理由はText Fieldのlabelの文字に対して
+      // text.secondaryが指定されているから？で、text-fieldというUI Componentのdefaultのstyling
+      // を確認したいっていう質問やね。(デフォルトではtext-fieldのfont-sizeは16px,colorは#000, など)
       secondary: "#00BFA5",
     },
   },
