@@ -9,20 +9,24 @@ import DatePickerUI from "../../UI/DatePicker";
 import InputUI from "../../UI/InputUI";
 import SelectUI from "../../UI/SelectUI";
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
+// const ITEM_HEIGHT = 48;
+// const ITEM_PADDING_TOP = 8;
+// const MenuProps = {
+//   PaperProps: {
+//     style: {
+//       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+//       width: 250,
+//     },
+//   },
+// };
+
+const today = new Date();
+const defaultDate = `${today.getFullYear()}-${
+  today.getMonth() + 1
+}-${today.getDate()}`;
 
 const TaskForm = () => {
   const dispatch = useDispatch();
-  const defaultDate = new Date();
 
   const [taskText, setTaskText] = useState("");
   const [dueDate, setDueDate] = useState(defaultDate);

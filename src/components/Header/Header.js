@@ -9,6 +9,9 @@ import { styled } from "@mui/system";
 
 const HeaderComponent = styled("header")({
   backgroundColor: "#FFF176",
+  position: "fixed",
+  top: 0,
+  width: "100%",
 });
 
 const Header = () => {
@@ -23,7 +26,6 @@ const Header = () => {
           alignItems="center"
           paddingTop={1.5}
           paddingBottom={1.5}
-          // sx={{ bgcolor: "background.paper" }}
         >
           <Typography variant="h5" component="h4" color="primary">
             ReduxToDo

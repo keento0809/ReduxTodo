@@ -11,13 +11,13 @@ import MobileDatePicker from "@mui/lab/MobileDatePicker";
 import DateAdapter from "@mui/lab/AdapterDateFns";
 import Box from "@mui/material/Box";
 
-// const today = new Date();
-// const minDateValue = `${today.getFullYear()}-${
-//   today.getMonth() + 1
-// }-${today.getDate()}`;
+const today = new Date();
+const defaultValue = `${today.getFullYear()}-${
+  today.getMonth() + 1
+}-${today.getDate()}`;
 
 const DatePickerUI = (props) => {
-  const [value, setValue] = React.useState(new Date());
+  const [value, setValue] = React.useState(defaultValue);
 
   const handleChange = (newValue) => {
     props.onChange(

@@ -7,7 +7,7 @@ import ContainerUI from "../UI/ContainerUI";
 
 const List = (props) => {
   return (
-    <Box className="これはlistのbox">
+    <Box paddingTop="61px">
       <ContainerUI className="これはListのContainerUI">
         <NewTask />
         <TaskList onOpen={props.onOpen} />

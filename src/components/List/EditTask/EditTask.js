@@ -56,23 +56,11 @@ const EditTask = (props) => {
         <Typography variant="h5" component="h5">
           Edit Your Task
         </Typography>
-        {/* Original code */}
-        {/* <input value={taskInput} onChange={taskInputChangeHandler} /> */}
         <InputUI
           value={taskInput}
           onChange={taskInputChangeHandler}
           margin={0}
         />
-        {/* Original code */}
-        {/* <select
-          name="importance"
-          value={importanceInput}
-          onChange={importanceInputChangeHandler}
-        >
-          <option value="High">High</option>
-          <option value="Normal">Normal</option>
-          <option value="Low">Low</option>
-        </select> */}
         <SelectUI
           name="importance"
           value1="High"
