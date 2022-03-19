@@ -17,7 +17,7 @@ const defaultValue = `${today.getFullYear()}-${
 }-${today.getDate()}`;
 
 const DatePickerUI = (props) => {
-  const [value, setValue] = React.useState(defaultValue);
+  const [value, setValue] = React.useState(new Date());
 
   const handleChange = (newValue) => {
     props.onChange(
@@ -38,6 +38,7 @@ const DatePickerUI = (props) => {
           inputFormat="MM/dd/yyyy"
           // default value
           value={value}
+          // minDate={defaultValue}
           onChange={handleChange}
           renderInput={(params) => <TextField color="primary" {...params} />}
         />
