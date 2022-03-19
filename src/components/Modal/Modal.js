@@ -9,7 +9,7 @@ import { Paper } from "@mui/material";
 const ModalOverlayStyle = styled.div`
   padding: 2rem;
   background: aquamarine;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
