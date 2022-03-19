@@ -12,6 +12,9 @@ const LiComponent = styled("li")({
 });
 
 const TaskItem = (props) => {
+  const importanceColor =
+    props.importance === "High" ? "#ff3a3a" : "text.primary";
+
   return (
     <PaperUI key={props.id}>
       <LiComponent key={props.index} id={props.id}>
@@ -29,7 +32,9 @@ const TaskItem = (props) => {
         <Typography
           variant="body2"
           component="p"
-          color="text.primary"
+          // default code
+          // color="text.primary"
+          color={importanceColor}
           paddingBottom={1}
         >
           {props.importance}
